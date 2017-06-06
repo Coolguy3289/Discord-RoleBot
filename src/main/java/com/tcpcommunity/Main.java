@@ -18,6 +18,7 @@ public class Main extends ListenerAdapter {
     }
 
     public Main() throws Exception {
+        //Add your Discord App Token below in the quotes.
         api = new JDABuilder(AccountType.BOT).setToken("<INSERT DISCORD TOKEN HERE>").buildAsync();
         roleSetter = new RoleSetter();
         roleSetter.addRoleToList(297197859353264128L, "<ROLES GO HERE SEPERATED BY COMMA OUTSIDE OF QUOTES>");
