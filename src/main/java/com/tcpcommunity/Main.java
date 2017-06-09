@@ -12,6 +12,8 @@ public class Main extends ListenerAdapter {
 
     private static JDA api;
     private RoleSetter roleSetter;
+    static long guildID = 0L; //Put your guild ID here, MAKE SURE THE L IS AT THE END.
+    static String discordToken = ""; // Put your GuildID in the quotes.
 
     public static void main(String[] arguments) throws Exception {
         new Main();
@@ -19,13 +21,13 @@ public class Main extends ListenerAdapter {
 
     public Main() throws Exception {
         //Add your Discord App Token below in the quotes.
-        api = new JDABuilder(AccountType.BOT).setToken("<INSERT DISCORD TOKEN HERE>").buildAsync();
+        api = new JDABuilder(AccountType.BOT).setToken(discordToken).buildAsync();
         roleSetter = new RoleSetter();
-        roleSetter.addRoleToList(297197859353264128L, "<ROLES GO HERE SEPERATED BY COMMA OUTSIDE OF QUOTES>");
+        roleSetter.addRoleToList(guildID, "<ROLES GO HERE SEPERATED BY COMMA OUTSIDE OF QUOTES>");
 
 
         api.addEventListener(this);
-        api.getPresence().setGame(Game.of("With Myself"));
+        api.getPresence().setGame(Game.of("With Roles"));
     }
 
     @Override
