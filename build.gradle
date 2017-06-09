@@ -9,7 +9,7 @@ plugins {
 mainClassName = 'com.tcpcommunity.Main'
 
 group 'com.tcpcommunity'
-version '0.1'
+version '0.6'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
