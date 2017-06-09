@@ -39,12 +39,12 @@ public class Main extends ListenerAdapter {
         Message message = event.getMessage();
         String content = message.getRawContent();
 
-       if(content.startsWith("l+") && content.length() > 2) {
+       if(content.startsWith("+") && content.length() > 2) {
            String role = content.substring(2);
            roleSetter.run(message, role);
        }
 
-       if(content.startsWith("l-") && content.length() > 2) {
+       if(content.startsWith("-") && content.length() > 2) {
            String role = content.substring(2);
            roleSetter.run(message, role, true);
        }
