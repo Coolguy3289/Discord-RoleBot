@@ -12,14 +12,14 @@ public class Main extends ListenerAdapter {
 
     private static JDA api;
     private RoleSetter roleSetter;
-    static long guildID = 0L; //Put your guild ID here, MAKE SURE THE L IS AT THE END.
-    static String discordToken = ""; // Put your GuildID in the quotes.
+    private static long guildID = 0L; //Put your guild ID here, MAKE SURE THE L IS AT THE END.
+    private static String discordToken = ""; // Put your GuildID in the quotes.
 
     public static void main(String[] arguments) throws Exception {
         new Main();
     }
 
-    public Main() throws Exception {
+    private Main() throws Exception {
         //Add your Discord App Token below in the quotes.
         api = new JDABuilder(AccountType.BOT).setToken(discordToken).buildAsync();
         roleSetter = new RoleSetter();
@@ -39,13 +39,13 @@ public class Main extends ListenerAdapter {
         Message message = event.getMessage();
         String content = message.getRawContent();
 
-       if(content.startsWith("+") && content.length() > 2) {
-           String role = content.substring(2);
+       if(content.startsWith("+") && content.length() > 1) {
+           String role = content.substring(1);
            roleSetter.run(message, role);
        }
 
-       if(content.startsWith("-") && content.length() > 2) {
-           String role = content.substring(2);
+       if(content.startsWith("-") && content.length() > 1) {
+           String role = content.substring(1);
            roleSetter.run(message, role, true);
        }
 
