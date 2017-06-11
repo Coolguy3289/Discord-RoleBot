@@ -45,14 +45,14 @@ public class RoleSetter {
                             if(removeIfExists) {
                                 try {
                                     guild.getController().removeRolesFromMember(member, r).queue((Void) -> {
-                                        message.getTextChannel().sendMessage(String.format("%s Removed `%s` from you.", member.getAsMention(), role)).queue();
+                                        message.getTextChannel().sendMessage(String.format("I removed `%s` from you, %s.", role, member.getAsMention())).queue();
                                     });
                                 } catch(Exception e){
-                                    message.getTextChannel().sendMessage(String.format("%s I was unable to remove `%s` from you, please have an administrator check the logs.", member.getAsMention(), role)).queue();
+                                    message.getTextChannel().sendMessage(String.format("I was unable to remove `%s` from you %s , Please contact an administrator for help!", role, member.getAsMention())).queue();
                                     e.printStackTrace();
                                 }
                             } else {
-                                message.getTextChannel().sendMessage(String.format("%s You already have `%s`.", member.getAsMention(), role)).queue();
+                                message.getTextChannel().sendMessage(String.format("You already have the `%s` role %s", role, member.getAsMention())).queue();
                             }
                             break;
                         }
@@ -61,10 +61,10 @@ public class RoleSetter {
                             // Add the role, send a message if it fails magically.
                             try {
                                 guild.getController().addRolesToMember(member, r).queue((Void) -> {
-                                    message.getTextChannel().sendMessage(String.format("%s Added `%s` to you.", member.getAsMention(), role)).queue();
+                                    message.getTextChannel().sendMessage(String.format("I added `%s` to you, %s.", role, member.getAsMention())).queue();
                                 });
                             } catch (Exception e) {
-                                message.getTextChannel().sendMessage(String.format("%s I was unable to add `%s` to you, ask an administrator to check the logs.", member.getAsMention(), role)).queue();
+                                message.getTextChannel().sendMessage(String.format("I was unable to add `%s` to you %s , Please contact an administrator for help!", role, member.getAsMention())).queue();
                                 e.printStackTrace();
                             }
 
@@ -73,7 +73,7 @@ public class RoleSetter {
                         }
                         // If they don't have the rank and we are spose to remove something
                         else {
-                            message.getTextChannel().sendMessage(String.format("%s You don't even have that role, stop wasting my time.", message.getAuthor().getAsMention())).queue();
+                            message.getTextChannel().sendMessage(String.format("You don't have that role %s , Try adding it first! ", message.getAuthor().getAsMention())).queue();
                         }
                     }
                 }
