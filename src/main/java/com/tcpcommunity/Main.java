@@ -23,7 +23,7 @@ public class Main extends ListenerAdapter {
         //Add your Discord App Token below in the quotes.
         api = new JDABuilder(AccountType.BOT).setToken(discordToken).buildAsync();
         roleSetter = new RoleSetter();
-        roleSetter.addRoleToList(guildID, "ROLES TO BE ADDED. PUT ROLE IN QUOTES");
+        roleSetter.addRoleToList(guildID, "ROLES TO BE ADDED.");
 
 
         api.addEventListener(this);
