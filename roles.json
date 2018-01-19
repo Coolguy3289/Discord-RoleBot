@@ -1,0 +1,18 @@
+{
+  "titleText": "List of Roles and How to add/remove them!",
+  "descriptionText": "To add a role, type z+ and whichever role you want listed below. To remove roles, type r- and the role you want to remove from the list below.",
+  "exampleText": "Example Usage\nr+ rpg <-- This will add the RPG role to you.\nr- rpg <-- This will remove the RPG role from you.",
+  "embedColor": "#277ecd",
+  "roles": [
+    {
+      "name": "Member",
+      "triggers": [
+        "all",
+        "active",
+        "idiot"
+      ],
+      "discordRoleName": "Member",
+      "description": "The Community Member Role!"
+    }
+  ]
+}
